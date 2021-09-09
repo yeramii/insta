@@ -37,3 +37,18 @@ def detail(request, pk):
     }
 
     return render(request, 'posts/detail.html', context)
+
+
+def update(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+
+    if request.method == "POST":
+        pass
+    else:
+        form = PostForm(instance=post)
+    
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'posts/form.html', context)
