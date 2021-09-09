@@ -1,11 +1,15 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from .forms import PostForm
 from .models import Post
+from django.core.paginator import Paginator
 
 # Create your views here.
 def index(request):
     posts = Post.objects.all()
+    paginator = Paginator(posts, 6)
 
+    page_number = request.GET.get('page')
+    posts = paginator.get_page(page_number)
     context = {
         'posts': posts,
     }
