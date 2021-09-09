@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block body %}
+  <div class="row">
+    <div class="col-6">
+      <img src="{{ post.image.url }}" alt="">
+    </div>
+    <div class="col-6">
+      <p>{{ post.content }}</p>
+      <p>{{ post.created_at|naturaltime }}</p>
+      <i class="far fa-heart"></i>
+      <div>
+        <a href="" class="btn btn-light">edit</a>
+        <form action="" class="d-inline">
+          <input type="submit" value="delete" class="btn btn-dark">
+        </form>
+      </div>
+      <hr>
+    </div>
+  </div>
+{% endblock body %}

@@ -3,7 +3,7 @@
 {% block body %}
 <div class="row row-cols-3">
   {% for post in posts %}
-    <p>post</p>
+    {% include 'posts/_card.html' %}
   {% endfor %}
 </div>
 {% endblock body %}
