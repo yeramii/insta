@@ -12,7 +12,8 @@
       <i class="far fa-heart mb-2"></i>
       <div>
         <a href="{% url 'posts:update' post.pk %}" class="btn btn-light">edit</a>
-        <form action="" class="d-inline">
+        <form action="{% url 'posts:delete' post.pk %}" class="d-inline" method="POST">
+          {% csrf_token %}
           <input type="submit" value="delete" class="btn btn-dark">
         </form>
       </div>

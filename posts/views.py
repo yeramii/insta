@@ -55,3 +55,9 @@ def update(request, pk):
     }
 
     return render(request, 'posts/form.html', context)
+
+
+def delete(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.delete()
+    return redirect('posts:index')
